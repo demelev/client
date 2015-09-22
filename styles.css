@@ -15,6 +15,9 @@ body {
     color: #ff0000;
 }
 
+.issue-item h3 {
+    color: Color.red;
+}
 
 .users-list {
     float: left;

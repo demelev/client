@@ -1,3 +1,4 @@
+var Redmine = require('promised-redmine');
 var gitolite_instance = null;
 
 function Init(path) {

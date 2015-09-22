@@ -23,6 +23,7 @@ app.on('window-all-closed', function() {
   }
 });
 
+var client = require("client")
 
 var menu = new Menu();
 menu.append(new MenuItem({ label: 'MenuItem1', click: function() { console.log('item 1 clicked'); } }));
