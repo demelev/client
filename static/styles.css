@@ -1,5 +1,5 @@
 body {
-    background: #202020;
+    background: #404040;
     height: 90vh;
 }
 
@@ -15,8 +15,16 @@ body {
     color: #ff0000;
 }
 
+#issue-list {
+    width: 50%;
+}
+
 .issue-item h3 {
     color: Color.red;
+}
+
+div.issue-item {
+    background-color: #ff0000;
 }
 
 .users-list {
@@ -69,3 +77,12 @@ body {
     background: #4a4a44;
     text-align: center;
 }
+
+#main-screen, #top-panel, #central-panel, #bottom-panel {
+    width: 100%;
+}
+
+#top-panel {
+    height: 64px;
+}
+

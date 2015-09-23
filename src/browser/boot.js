@@ -19,7 +19,7 @@ app.on('window-all-closed', function() {
 // initialization and ready for creating browser windows.
 app.on('ready', function() {
 	var protocol = require('protocol');
-	protocol.registerProtocol('dash', function(request) {
+	protocol.registerHttpProtocol('dash', function(request) {
 		var url = request.url.substr(7)
 		var search = url.indexOf('?');
 		if (search > -1) {
@@ -29,7 +29,7 @@ app.on('ready', function() {
 	});
 
 	// Create the browser window.
-	mainWindow = new BrowserWindow({width: 800, height: 600});
+	mainWindow = new BrowserWindow({width: 350, height: 600});
 
 	// and load the index.html of the app.
 	mainWindow.loadUrl('file://' + __dirname + '/../../static/index.html');
