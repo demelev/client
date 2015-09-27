@@ -8,6 +8,7 @@ require('crash-reporter').start();
 // be closed automatically when the javascript object is GCed.
 var mainWindow = null;
 
+//console.log("Hello : ");
 // Quit when all windows are closed.
 app.on('window-all-closed', function() {
 	if (process.platform != 'darwin')
@@ -30,10 +31,13 @@ app.on('ready', function() {
 
 	// Create the browser window.
 	mainWindow = new BrowserWindow({width: 350, height: 600});
-
+    //window.$ = window.jQuery = require('jquery');
+    //mainWindow.$ = mainWindow.jQuery = require('jquery');
+    //require('jquery-ui');
 	// and load the index.html of the app.
 	mainWindow.loadUrl('file://' + __dirname + '/../../static/index.html');
 
+    //console.log("Hello : " + $);
 	// Emitted when the window is closed.
 	mainWindow.on('closed', function() {
 		// Dereference the window object, usually you would store windows

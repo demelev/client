@@ -4,11 +4,14 @@
 	<meta charset="UTF-8">
 	<title>Bully redmine client</title>
     <LINK href="styles.css" rel="stylesheet" type="text/css">
+    <!--
+    <script type="text/javascript">window.$ = window.jQuery = require('jquery'); require('jquery-ui')</script>
+    -->
 </head>
 <body>
 	<script>
-		require('coffee-script').register();
-		require('../src/app/boot');
+        require('coffee-script').register();
+        require('../src/app/boot');
         var remote = require('remote');
         var Menu = remote.require('menu');
         var MenuItem = remote.require('menu-item');
@@ -23,14 +26,5 @@
           menu.popup(remote.getCurrentWindow());
         }, false);
 	</script>
-
-    <div id="main-screen">
-        <div id="top-panel">
-        </div>
-        <div id="central-panel">
-        </div>
-        <div id="bottom-panel">
-        </div>
-    </div>
 </body>
 </html>

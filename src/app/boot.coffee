@@ -1,5 +1,7 @@
 Redmine = require 'promised-redmine'
 {View, $} = require 'space-pen'
+$ = require 'jquery'
+require 'jquery-ui'
 
 class Issue extends View
     @content: (params) ->
@@ -8,14 +10,28 @@ class Issue extends View
 
 class IssueList extends View
     @content: (params) ->
-        @div id: "issue-list", =>
+        @div outlet: "list", id: "issue-list", =>
             @h1 class: "issue-text", "Issues"
-            @ol outlet: "list" 
+            @ul outlet: "list", =>
+                @li "Eugene"
+                @li "Dmitrii"
+                @li "Dm2"
+    
+    initialize: (params) ->
+        $(@list).sortable()
+        $(@list).disableSelection()
     
     add_issue: (issue) ->
         issue = new Issue(title: issue.subject)
         @list.append(issue)
             
+
+class MainScreen extends View
+    @content: (params) ->
+        @div id: "main-screen", =>
+            @div id: "top-panel"
+            @div id: "central-panel"
+            @div id: "bottom-panel"
 
 # Create redmine client
 config = {
@@ -27,12 +43,18 @@ config = {
 redmineApi = new Redmine(config)
 
 issue_list = new IssueList()
-$("div").append issue_list
+main_screen = new MainScreen()
+
+$("body").append main_screen
+$("#central-panel").append issue_list
+$ ->
+    $("#issue-list").sortable
+    $("#main-screen").sortable
+    $("#issue-list").disableSelection
 
 redmineApi.getIssues().success( (issues) -> 
      for issue in issues.issues
          issue_list.add_issue issue
-         #console.log issue.subject
 ).otherwise( ->
     console.log "otherwise"
 ) 

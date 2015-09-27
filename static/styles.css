@@ -82,7 +82,18 @@ div.issue-item {
     width: 100%;
 }
 
-#top-panel {
-    height: 64px;
+#top-panel, #bottom-panel {
+    height: 32px;
+    background-color: #c2d233;
 }
 
+#issue-list ul {
+    list-style-type: none;
+}
+
+#issue-list li {
+    height: 20px;
+    padding: 5px;
+    margin: 4px;
+    background-color: #ff0000;
+}
