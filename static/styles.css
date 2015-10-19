@@ -1,6 +1,11 @@
+html {
+    height: 100%;
+}
+
 body {
     background: #404040;
-    height: 90vh;
+    height: 100%;
+    margin: 0px;
 }
 
 .alert {
@@ -20,66 +25,23 @@ body {
 }
 
 .issue-item h3 {
-    color: Color.red;
+    color: #ffff00;
 }
 
 div.issue-item {
     background-color: #ff0000;
 }
 
-.users-list {
-    float: left;
-    position: relative;
-    width: 30%;
+#top-panel, #bottom-panel {
 }
 
-.right-panel {
-    position: relative;
-    float: left;
-    background: #2a2b22;
-    width: 60%;
-    height: 100%;
+#main-screen {
 }
 
-.buttons {
+#main-screen > div {
 }
 
-
-.info {
-
-}
-
-#users_list {
-    border-color: #a2b222;
-    border-style: solid;
-    border-radius: 5px;
-    height: 100%;
-}
-
-#users_list > ul {
-    color: white;
-    cursor: default;
-    margin: 2px;
-    padding: 0px;
-    background-color: #2a2b22;
-}
-
-#users_list > ul:hover {
-    color: #c2d233;
-} 
-
-#users_list > ul.selected {
-    color: #a2b222;
-} 
-
-#user_list_head {
-    margin: 0px;
-    background: #4a4a44;
-    text-align: center;
-}
-
-#main-screen, #top-panel, #central-panel, #bottom-panel {
-    width: 100%;
+#central-panel {
 }
 
 #top-panel, #bottom-panel {

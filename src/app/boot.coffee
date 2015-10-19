@@ -6,23 +6,23 @@ require 'jquery-ui'
 class Issue extends View
     @content: (params) ->
         @div class: "issue-item", =>
-            @h3 "Name: #{params.title}"
+            @h3 "Name: #{params.issue.subject}"
 
 class IssueList extends View
     @content: (params) ->
         @div outlet: "list", id: "issue-list", =>
             @h1 class: "issue-text", "Issues"
             @ul outlet: "list", =>
-                @li "Eugene"
-                @li "Dmitrii"
-                @li "Dm2"
     
     initialize: (params) ->
-        $(@list).sortable()
+        $(@list).sortable({
+            axis: "y",
+            containment: "parent"
+        })
         $(@list).disableSelection()
     
     add_issue: (issue) ->
-        issue = new Issue(title: issue.subject)
+        issue = new Issue(issue: issue)
         @list.append(issue)
             
 
@@ -35,8 +35,8 @@ class MainScreen extends View
 
 # Create redmine client
 config = {
-  host: "10.3.10.58",
-  apiKey: "a9f8aa3391da26c74da09d6537084f63b4e62dfe",
+  host: "10.3.10.249",
+  apiKey: "a4489a9592b2153dfcb6de7b58096da4fcd7c4c8",
   protocol: "http"
 }
 
@@ -49,7 +49,6 @@ $("body").append main_screen
 $("#central-panel").append issue_list
 $ ->
     $("#issue-list").sortable
-    $("#main-screen").sortable
     $("#issue-list").disableSelection
 
 redmineApi.getIssues().success( (issues) -> 
